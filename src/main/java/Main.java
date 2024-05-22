@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -10,8 +9,8 @@ public class Main {
         String vipolni = "[]";
         Integer nomerchek = 0;
         String nechego = "";
-        ArrayList<Zadanie> spisok = new ArrayList<>();
-        ArrayList<Command> commands = new ArrayList<>();
+        ArrayList<Zadanie> spisok = new ArrayList ();
+        ArrayList<Command> commands = new ArrayList ();
 
         commands.add(new Command(" 1.Формат команды: add <описание задачи>\n" + "\n" + "Описание задачи может содержать любые символы, кроме перевода строки.\n" + "Перевод строки (нажатие клавиши Enter) означает завершение ввода описания задачи.\n"));
         commands.add(new Command("2.Формат команды: print [all]\n" + "\n" + "Выводит на печать список задач.\n"));
@@ -38,14 +37,20 @@ public class Main {
             } else if (command.equals("quit")) {
                 System.exit(0);
             } else if (command.equals("print")) {
-                for (Zadanie t : spisok) {
-                    if (t.vipolni.equals("[]")) {
-                        System.out.println(t);
+                String K = sc.nextLine();
+                if (K.equals("all")) {
+                    for (Zadanie f : spisok) {
+                        System.out.println(f);
                     }
-                }
-            } else if (command.equals("print[all]")) {
-                for (Zadanie f : spisok) {
-                    System.out.println(f);
+                } else if (K.equals(nechego)) {
+                    for (Zadanie t : spisok) {
+                        if (t.vipolni.equals("[]")) {
+                            System.out.println(t);
+                        }
+                    }
+                } else ;
+                {
+                    System.out.println("не коретно введена команда");
                 }
             } else if (command.equals("toggle")) {
                 Integer i = -120;
