@@ -5,7 +5,6 @@ public class Zadanie {
     public void menala() {
         if (vipolni.equals("[]")) vipolni = ("[X]");
         else vipolni = ("[]");
-        System.out.println(nomerochek+vipolni + zadacha);
     }
 
     @Override

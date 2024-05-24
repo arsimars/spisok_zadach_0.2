@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
+
     public static void main(String[] args) {
         System.setProperty("LOG_LEVEL", "info");
 
@@ -70,6 +71,7 @@ public class App {
             switch (command) {
                 case "add" -> {
                     zadacha = sc.nextLine();
+                    logger.info("{}{}", command, zadacha);
                     if (!zadacha.isEmpty()) {
                         Zadanie nomer = new Zadanie();
                         nomer.vipolni = vipolni;
@@ -79,65 +81,79 @@ public class App {
                         spisok.add(nomer);
                     } else {
                         System.out.println("ошибка");
+                        logger.info("ошибка");
                     }
                 }
                 case "quit" -> System.exit(0);
+
                 case "print" -> {
                     String allnet = sc.nextLine();
+                    logger.info("print {}", allnet);
                     if (allnet.contains("all")) {
                         for (Zadanie f : spisok) {
                             System.out.println(f);
+                            logger.info(String.valueOf(f));
                         }
                     } else if (allnet.equals(nechego)) {
                         for (Zadanie t : spisok) {
                             if (t.vipolni.equals("[]")) {
                                 System.out.println(t);
+                                logger.info(String.valueOf(t));
                             }
                         }
                     } else {
                         System.out.println("не коретно введена команда");
+                        logger.info("не коретно введена команда");
                     }
                 }
                 case "toggle" -> {
                     int i;
                     try {
                         i = sc.nextInt();
+                        logger.info("toggle {}", i);
                         if (nomerchek > i) {
                             if (0 <= i) {
                                 spisok.get(i).menala();
-
                             } else {
                                 System.out.println("не коретно введена команда");
+                                logger.info("не коретно введена команда");
                             }
 
                         } else {
                             System.out.println("не коретно введена команда");
+                            logger.info("не коретно введена команда");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("не коретно введена команда");
+                        logger.info("не коретно введена команда");
                     }
                 }
                 case "delete" -> {
                     try {
                         int h = sc.nextInt();
+                        logger.info("delete {}", h);
                         if (nomerchek > h) {
                             if (0 <= h) {
                                 spisok.get(h).vipolni = "";
                                 spisok.get(h).zadacha = "";
-                                spisok.get(h).nomerochek= null;
+                                spisok.get(h).nomerochek = null;
                             } else {
                                 System.out.println("не коретно введена команда");
+                                logger.info("не коретно введена команда");
                             }
                         } else {
                             System.out.println("не коретно введена команда");
+                            logger.info("не коретно введена команда");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("не коретно введена команда");
+                        logger.info("не коретно введена команда");
                     }
                 }
                 case "edit" -> {
                     try {
                         int o = sc.nextInt();
+                        logger.info("edit {}", o);
                         if (nomerchek > o) {
                             if (0 <= o) {
                                 String novai = sc.nextLine();
@@ -145,24 +161,30 @@ public class App {
                                 spisok.get(o).vipolni = "[]";
                             } else {
                                 System.out.println("не коретно введена команда");
+                                logger.info("не коретно введена команда");
                             }
                         } else {
                             System.out.println("не коретно введена команда");
+                            logger.info("не коретно введена команда");
                         }
                     } catch (InputMismatchException e) {
                         System.out.println("не коретно введена команда");
+                        logger.info("не коретно введена команда");
                     }
                 }
                 case "search" -> {
                     String slovo = sc.nextLine();
+                    logger.info("search {}", slovo);
                     for (Zadanie u : spisok) {
                         if (u.zadacha.contains(slovo)) ;
                         System.out.println(u);
                     }
                 }
                 case "help" -> {
+                    logger.info("help");
                     for (Command d : commands) {
                         System.out.println(d);
+                        logger.info(String.valueOf(d));
                     }
                 }
             }
