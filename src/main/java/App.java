@@ -8,18 +8,20 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static java.lang.System.*;
+
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
-        System.setProperty("LOG_LEVEL", "info");
-
+        setProperty("LOG_LEVEL", "info");
+        String kiboshing = "не коретно введена команда";
         logger.trace("Entering method foo()");
         logger.debug("Received request from 198.12.34.56");
         logger.info("User logged in: john");
         logger.warn("Connection to server lost. Retrying...");
         logger.error("Failed to write data to file: myFile.txt");
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(in);
         String zadacha;
         String vipolni = "[]";
         int nomerchek = 0;
@@ -80,30 +82,30 @@ public class App {
                         ++nomerchek;
                         spisok.add(nomer);
                     } else {
-                        System.out.println("ошибка");
+                        out.println("ошибка");
                         logger.info("ошибка");
                     }
                 }
-                case "quit" -> System.exit(0);
+                case "quit" -> exit(0);
 
                 case "print" -> {
                     String allnet = sc.nextLine();
                     logger.info("print {}", allnet);
                     if (allnet.contains("all")) {
                         for (Zadanie f : spisok) {
-                            System.out.println(f);
+                            out.println(f);
                             logger.info(String.valueOf(f));
                         }
                     } else if (allnet.equals(nechego)) {
                         for (Zadanie t : spisok) {
                             if (t.vipolni.equals("[]")) {
-                                System.out.println(t);
+                                out.println(t);
                                 logger.info(String.valueOf(t));
                             }
                         }
                     } else {
-                        System.out.println("не коретно введена команда");
-                        logger.info("не коретно введена команда");
+                        out.println("не коретно введена команда");
+                        logger.info("{}",kiboshing);
                     }
                 }
                 case "toggle" -> {
@@ -115,17 +117,17 @@ public class App {
                             if (0 <= i) {
                                 spisok.get(i).menala();
                             } else {
-                                System.out.println("не коретно введена команда");
-                                logger.info("не коретно введена команда");
+                                out.println("не коретно введена команда");
+                                logger.info("{}",kiboshing);
                             }
 
                         } else {
-                            System.out.println("не коретно введена команда");
-                            logger.info("не коретно введена команда");
+                            out.println("не коретно введена команда");
+                            logger.info("{}",kiboshing);
                         }
                     } catch (InputMismatchException e) {
-                        System.out.println("не коретно введена команда");
-                        logger.info("не коретно введена команда");
+                        out.println("не коретно введена команда");
+                        logger.info("{}",kiboshing);
                     }
                 }
                 case "delete" -> {
@@ -138,16 +140,16 @@ public class App {
                                 spisok.get(h).zadacha = "";
                                 spisok.get(h).nomerochek = null;
                             } else {
-                                System.out.println("не коретно введена команда");
-                                logger.info("не коретно введена команда");
+                                out.println("не коретно введена команда");
+                                logger.info("{}",kiboshing);
                             }
                         } else {
-                            System.out.println("не коретно введена команда");
-                            logger.info("не коретно введена команда");
+                            out.println("не коретно введена команда");
+                            logger.info("{}",kiboshing);
                         }
                     } catch (InputMismatchException e) {
-                        System.out.println("не коретно введена команда");
-                        logger.info("не коретно введена команда");
+                        out.println("не коретно введена команда");
+                        logger.info("{}",kiboshing);
                     }
                 }
                 case "edit" -> {
@@ -160,16 +162,16 @@ public class App {
                                 spisok.get(o).zadacha = novai;
                                 spisok.get(o).vipolni = "[]";
                             } else {
-                                System.out.println("не коретно введена команда");
-                                logger.info("не коретно введена команда");
+                                out.println("не коретно введена команда");
+                                logger.info("{}",kiboshing);
                             }
                         } else {
-                            System.out.println("не коретно введена команда");
-                            logger.info("не коретно введена команда");
+                            out.println("не коретно введена команда");
+                            logger.info("{}",kiboshing);
                         }
                     } catch (InputMismatchException e) {
-                        System.out.println("не коретно введена команда");
-                        logger.info("не коретно введена команда");
+                        out.println("не коретно введена команда");
+                        logger.info("{}",kiboshing);
                     }
                 }
                 case "search" -> {
@@ -177,13 +179,13 @@ public class App {
                     logger.info("search {}", slovo);
                     for (Zadanie u : spisok) {
                         if (u.zadacha.contains(slovo)) ;
-                        System.out.println(u);
+                        out.println(u);
                     }
                 }
                 case "help" -> {
                     logger.info("help");
                     for (Command d : commands) {
-                        System.out.println(d);
+                        out.println(d);
                         logger.info(String.valueOf(d));
                     }
                 }
