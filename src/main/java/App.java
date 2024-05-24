@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
-
     public static void main(String[] args) {
         System.setProperty("LOG_LEVEL", "info");
 
@@ -67,9 +66,6 @@ public class App {
                 Меняет описание задачи.
                 """));
         while (sc.hasNext()) {
-            Logger logger = LoggerFactory.getLogger(App.class);
-            logger.info("ДЖАВА ЭТО МОЩЬ!");
-
             String command = sc.next();
             switch (command) {
                 case "add" -> {
@@ -128,6 +124,7 @@ public class App {
                             if (0 <= h) {
                                 spisok.get(h).vipolni = "";
                                 spisok.get(h).zadacha = "";
+                                spisok.get(h).nomerochek= null;
                             } else {
                                 System.out.println("не коретно введена команда");
                             }
