@@ -15,9 +15,7 @@ public class Delete {
             logger.info("delete {}", h);
             if (App.nomerchek > h) {
                 if (0 <= h) {
-                    toDoList.spisok.get(h).vipolni = "";
-                    toDoList.spisok.get(h).zadacha = "";
-                    toDoList.spisok.get(h).nomerochek = null;
+                    toDoList.spisok.remove(h);
                 } else {
                     out.println(Print.kiboshing);
                     logger.info(Print.kiboshing);

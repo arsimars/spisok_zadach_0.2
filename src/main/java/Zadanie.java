@@ -9,6 +9,6 @@ public class Zadanie {
 
     @Override
     public String toString() {
-        return nomerochek + vipolni + zadacha;
+        return nomerochek +"."+ vipolni + zadacha;
     }
 }

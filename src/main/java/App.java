@@ -26,9 +26,6 @@ public class App {
         logger.error("Failed to write data to file: myFile.txt");
         Scanner sc = new Scanner(in);
         var todolist = new ToDoList();
-        int nomerchek = 0;
-        String nechego = "";
-        ArrayList<Zadanie> spisok = new ArrayList<>();
         while (sc.hasNext()) {
             String command = sc.next();
             switch (command) {
@@ -55,13 +52,8 @@ public class App {
                     edit.pomenala(sc,todolist,logger);
                 }
                 case "search" -> {
-                    String slovo = sc.nextLine();
-                    logger.info("search {}", slovo);
-                    for (Zadanie u : todolist.spisok) {
-                        if (u.zadacha.contains(slovo)) ;
-                        out.println(u);
-                        logger.info(String.valueOf(u));
-                    }
+                    var search = new Search();
+                    search.iskala(sc,todolist,logger);
                 }
                 case "help" -> {
                     var help = new Help();
