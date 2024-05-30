@@ -6,7 +6,6 @@ public class Zadanie {
         if (vipolni.equals("[]")) vipolni = ("[X]");
         else vipolni = ("[]");
     }
-
     @Override
     public String toString() {
         return nomerochek +"."+ vipolni + zadacha;
