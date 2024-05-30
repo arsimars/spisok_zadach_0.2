@@ -6,11 +6,9 @@ import org.slf4j.LoggerFactory;
 import static java.lang.System.out;
 
 public class Print {
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
-
     String nechego = "";
-    String kiboshing = "не коретно введена команда";
-    public void nepokaz (Scanner sc, ToDoList toDoList) {
+    public static String kiboshing = "не коретно введена команда";
+    public void nepokaz (Scanner sc, ToDoList toDoList,Logger logger) {
         App.allnet = sc.nextLine();
         logger.info("print {}", App.allnet);
         if (App.allnet.contains("all")) {
@@ -26,8 +24,8 @@ public class Print {
                 }
             }
         } else {
-            out.println("не коретно введена команда");
-            logger.info("{}", kiboshing);
+            out.println(kiboshing);
+            logger.info(kiboshing);
         }
     }
 }

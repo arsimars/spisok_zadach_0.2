@@ -35,86 +35,32 @@ public class App {
                 case "add" -> {
                     zadacha = sc.nextLine();
                     var add = new Add();
-                    add.dobavka(sc, todolist);
-                    ++nomerchek;
+                    add.dobavka(sc, todolist,logger);
                 }
                 case "quit" -> exit(0);
                 case "print" -> {
                     var print = new Print();
-                    print.nepokaz(sc, todolist);
+                    print.nepokaz(sc, todolist,logger);
                 }
                 case "toggle" -> {
-                    int i;
-                    try {
-                        i = sc.nextInt();
-                        logger.info("toggle {}", i);
-                        if (nomerchek > i) {
-                            if (0 <= i) {
-                                spisok.get(i).menala();
-                            } else {
-                                out.println("не коретно введена команда");
-                                logger.info("{}", kiboshing);
-                            }
-
-                        } else {
-                            out.println("не коретно введена команда");
-                            logger.info("{}", kiboshing);
-                        }
-                    } catch (InputMismatchException e) {
-                        out.println("не коретно введена команда");
-                        logger.info("{}", kiboshing);
-                    }
+                    var toggle = new Toggle();
+                    toggle.menalaApp(sc,todolist,logger);
                 }
                 case "delete" -> {
-                    try {
-                        int h = sc.nextInt();
-                        logger.info("delete {}", h);
-                        if (nomerchek > h) {
-                            if (0 <= h) {
-                                spisok.get(h).vipolni = "";
-                                spisok.get(h).zadacha = "";
-                                spisok.get(h).nomerochek = null;
-                            } else {
-                                out.println("не коретно введена команда");
-                                logger.info("{}", kiboshing);
-                            }
-                        } else {
-                            out.println("не коретно введена команда");
-                            logger.info("{}", kiboshing);
-                        }
-                    } catch (InputMismatchException e) {
-                        out.println("не коретно введена команда");
-                        logger.info("{}", kiboshing);
-                    }
+                    var delete = new Delete();
+                    delete.udalit(sc,todolist,logger);
                 }
                 case "edit" -> {
-                    try {
-                        int o = sc.nextInt();
-                        logger.info("edit {}", o);
-                        if (nomerchek > o) {
-                            if (0 <= o) {
-                                String novai = sc.nextLine();
-                                spisok.get(o).zadacha = novai;
-                                spisok.get(o).vipolni = "[]";
-                            } else {
-                                out.println("не коретно введена команда");
-                                logger.info("{}", kiboshing);
-                            }
-                        } else {
-                            out.println("не коретно введена команда");
-                            logger.info("{}", kiboshing);
-                        }
-                    } catch (InputMismatchException e) {
-                        out.println("не коретно введена команда");
-                        logger.info("{}", kiboshing);
-                    }
+                    var edit = new Edit();
+                    edit.pomenala(sc,todolist,logger);
                 }
                 case "search" -> {
                     String slovo = sc.nextLine();
                     logger.info("search {}", slovo);
-                    for (Zadanie u : spisok) {
+                    for (Zadanie u : todolist.spisok) {
                         if (u.zadacha.contains(slovo)) ;
                         out.println(u);
+                        logger.info(String.valueOf(u));
                     }
                 }
                 case "help" -> {

@@ -7,9 +7,8 @@ import static java.lang.System.out;
 
 public class Add extends Zadanie {
 
-    private static final Logger logger = LoggerFactory.getLogger(App.class);
 
-    public void dobavka(Scanner sc, ToDoList toDoList) {
+    public void dobavka(Scanner sc, ToDoList toDoList,Logger logger) {
         String vipolni = "[]";
         logger.info("add {}", zadacha);
         if (!App.zadacha.isEmpty()) {
