@@ -11,7 +11,6 @@ public class Add extends Zadanie {
 
     public void dobavka(Scanner sc, ToDoList toDoList) {
         String vipolni = "[]";
-        var todolist = new ToDoList();
         logger.info("add {}", zadacha);
         if (!App.zadacha.isEmpty()) {
             Zadanie nomer = new Zadanie();
@@ -19,7 +18,7 @@ public class Add extends Zadanie {
             nomer.zadacha = App.zadacha;
             nomer.nomerochek = App.nomerchek;
             ++App.nomerchek;
-            todolist.zpisochek_dobav(nomer);
+            toDoList.zpisochek_dobav(nomer);
         } else {
             out.println("ошибка");
             logger.info("ошибка");

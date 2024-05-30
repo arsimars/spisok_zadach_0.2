@@ -11,6 +11,7 @@ public class Print {
     String nechego = "";
     String kiboshing = "не коретно введена команда";
     public void nepokaz (Scanner sc, ToDoList toDoList) {
+        App.allnet = sc.nextLine();
         logger.info("print {}", App.allnet);
         if (App.allnet.contains("all")) {
             for (Zadanie alll : toDoList.spisok) {

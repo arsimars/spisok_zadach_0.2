@@ -40,7 +40,6 @@ public class App {
                 }
                 case "quit" -> exit(0);
                 case "print" -> {
-                    App.allnet = sc.nextLine();
                     var print = new Print();
                     print.nepokaz(sc, todolist);
                 }
