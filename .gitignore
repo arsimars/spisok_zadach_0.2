@@ -27,5 +27,7 @@ bin/
 
 .idea/
 
+target/
+
 ### Mac OS ###
 .DS_Store
