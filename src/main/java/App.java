@@ -4,8 +4,6 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -26,42 +24,13 @@ public class App {
         logger.error("Failed to write data to file: myFile.txt");
         Scanner sc = new Scanner(in);
         var todolist = new ToDoList();
+        var factory = new Factory();
         while (sc.hasNext()) {
             String command = sc.next();
-            switch (command) {
-                case "add" -> {
-                    zadacha = sc.nextLine();
-                    var add = new Add();
-                    add.dobavka(sc, todolist,logger);
-                }
-                case "quit" -> exit(0);
-                case "print" -> {
-                    var print = new Print();
-                    print.nepokaz(sc, todolist,logger);
-                }
-                case "toggle" -> {
-                    var toggle = new Toggle();
-                    toggle.menalaApp(sc,todolist,logger);
-                }
-                case "delete" -> {
-                    var delete = new Delete();
-                    delete.udalit(sc,todolist,logger);
-                }
-                case "edit" -> {
-                    var edit = new Edit();
-                    edit.pomenala(sc,todolist,logger);
-                }
-                case "search" -> {
-                    var search = new Search();
-                    search.iskala(sc,todolist,logger);
-                }
-                case "help" -> {
-                    var help = new Help();
-                    help.helpanul();
-                    logger.info("help");
-                }
+            var cmd = factory.createCommand(command);
+            cmd.vypolni(sc, todolist,logger);
             }
         }
     }
-}
+
 

@@ -5,10 +5,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import static java.lang.System.out;
 
-public class Print {
+public class Print implements ClassnoVypolnil {
     String nechego = "";
     public static String kiboshing = "не коретно введена команда";
-    public void nepokaz (Scanner sc, ToDoList toDoList,Logger logger) {
+    public void vypolni (Scanner sc, ToDoList toDoList,Logger logger) {
         App.allnet = sc.nextLine();
         logger.info("print {}", App.allnet);
         if (App.allnet.contains("all")) {

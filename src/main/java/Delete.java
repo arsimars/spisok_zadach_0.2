@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import static java.lang.System.out;
 
-public class Delete {
-    public void udalit(Scanner sc,ToDoList toDoList,Logger logger)
+public class Delete implements ClassnoVypolnil {
+    public void vypolni(Scanner sc,ToDoList toDoList,Logger logger)
     {
         try {
             int h = sc.nextInt();

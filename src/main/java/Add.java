@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import static java.lang.System.out;
 
-public class Add extends Zadanie {
+public class Add implements ClassnoVypolnil {
 
 
-    public void dobavka(Scanner sc, ToDoList toDoList,Logger logger) {
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         String vipolni = "[]";
-        logger.info("add {}", zadacha);
+        App.zadacha = sc.nextLine();
+        logger.info("add {}", App.zadacha);
         if (!App.zadacha.isEmpty()) {
             Zadanie nomer = new Zadanie();
             nomer.vipolni = vipolni;

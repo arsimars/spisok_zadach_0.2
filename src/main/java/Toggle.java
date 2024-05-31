@@ -7,8 +7,8 @@ import org.slf4j.LoggerFactory;
 import static java.lang.System.out;
 
 
-public class Toggle {
-    public void menalaApp(Scanner sc, ToDoList toDoList,Logger logger){
+public class Toggle implements ClassnoVypolnil{
+    public void vypolni (Scanner sc, ToDoList toDoList,Logger logger){
         int i;
         try {
             i = sc.nextInt();

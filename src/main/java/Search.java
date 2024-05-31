@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static java.lang.System.out;
-public class Search {
-    public void iskala(Scanner sc, ToDoList toDoList, Logger logger) {
+public class Search implements ClassnoVypolnil {
+    public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
         String slovo = sc.nextLine();
         logger.info("search {}", slovo);
         for (Zadanie u : toDoList.spisok) {

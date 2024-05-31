@@ -6,8 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static java.lang.System.out;
-public class Edit {
-    public void pomenala (Scanner sc, ToDoList toDoList, Logger logger) {
+public class Edit implements ClassnoVypolnil{
+    public void vypolni  (Scanner sc, ToDoList toDoList, Logger logger) {
         try {
             int o = sc.nextInt();
             logger.info("edit {}", o);
