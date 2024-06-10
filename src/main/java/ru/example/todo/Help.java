@@ -1,11 +1,13 @@
+package ru.example.todo;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Logger;
 
 import static java.lang.System.out;
-
+@CommandInterface(name = "help")
 public class Help implements ClassnoVypolnil{
     @Override
+
     public void vypolni(Scanner sc, ToDoList toDoList, org.slf4j.Logger logger) {
         ArrayList<Command> commands = new ArrayList<>();
         commands.add(new Command("""

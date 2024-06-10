@@ -1,9 +1,10 @@
-
+package ru.example.todo;
 
 import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
 
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
 import static java.lang.System.*;
@@ -14,9 +15,8 @@ public class App {
     public static String allnet;
     public static Integer nomerchek = 0;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         setProperty("LOG_LEVEL", "info");
-        String kiboshing = "не коретно введена команда";
         logger.trace("Entering method foo()");
         logger.debug("Received request from 198.12.34.56");
         logger.info("User logged in: john");
@@ -28,9 +28,9 @@ public class App {
         while (sc.hasNext()) {
             String command = sc.next();
             var cmd = factory.createCommand(command);
-            cmd.vypolni(sc, todolist,logger);
-            }
+            cmd.vypolni(sc, todolist, logger);
         }
     }
+}
 
 

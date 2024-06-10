@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+package ru.example.todo;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import static java.lang.System.out;
+import java.util.ArrayList;
 
 public class ToDoList {
     int nomerchek = 0;

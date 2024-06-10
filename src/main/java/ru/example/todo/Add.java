@@ -1,12 +1,13 @@
+package ru.example.todo;
+
 import java.util.Scanner;
 
 import org.slf4j.Logger;
 
 import static java.lang.System.out;
+@CommandInterface(name = "add")
 
 public class Add implements ClassnoVypolnil {
-
-
     public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         String vipolni = "[]";
         App.zadacha = sc.nextLine();

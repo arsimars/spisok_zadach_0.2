@@ -1,3 +1,5 @@
+package ru.example.todo;
+
 public class Zadanie {
     String zadacha;
     String vipolni;

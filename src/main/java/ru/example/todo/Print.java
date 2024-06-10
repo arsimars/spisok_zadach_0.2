@@ -1,11 +1,14 @@
-import java.util.ArrayList;
+package ru.example.todo;
+
 import java.util.Scanner;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import static java.lang.System.out;
+@CommandInterface(name = "print")
 
 public class Print implements ClassnoVypolnil {
+
     String nechego = "";
     public static String kiboshing = "не коретно введена команда";
     public void vypolni (Scanner sc, ToDoList toDoList,Logger logger) {
