@@ -7,10 +7,15 @@ import org.slf4j.Logger;
 
 import static java.lang.System.out;
 
-@CommandInterface(name = "toggle")
+
 
 public class Toggle implements ClassnoVypolnil{
-    public void vypolni (Scanner sc, ToDoList toDoList,Logger logger){
+    @Override
+    public void supports(String name) {
+        name = "toggle";
+    }
+    @Override
+    public void vypolni (Scanner sc, ToDoList toDoList, Logger logger){
         int i;
         try {
             i = sc.nextInt();

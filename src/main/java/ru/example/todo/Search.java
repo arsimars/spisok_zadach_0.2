@@ -5,9 +5,15 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 
 import static java.lang.System.out;
-@CommandInterface(name = "search")
+
 
 public class Search implements ClassnoVypolnil {
+    @Override
+    public void supports(String name) {
+        name = "search";
+    }
+    @Override
+
     public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
         String slovo = sc.nextLine();
         logger.info("search {}", slovo);

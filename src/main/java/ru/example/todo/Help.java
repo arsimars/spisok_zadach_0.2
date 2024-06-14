@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static java.lang.System.out;
-@CommandInterface(name = "help")
+
 public class Help implements ClassnoVypolnil{
+    @Override
+    public void supports(String name) {
+        name = "help";
+    }
+
     @Override
 
     public void vypolni(Scanner sc, ToDoList toDoList, org.slf4j.Logger logger) {

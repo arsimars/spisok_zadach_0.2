@@ -6,10 +6,15 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 
 import static java.lang.System.out;
-@CommandInterface(name = "delete")
+
 public class Delete implements ClassnoVypolnil {
 
-    public void vypolni(Scanner sc,ToDoList toDoList,Logger logger)
+    @Override
+    public void supports(String name) {
+        name = "delete";
+    }
+    @Override
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger)
     {
         try {
             int h = sc.nextInt();

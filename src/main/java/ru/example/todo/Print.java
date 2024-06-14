@@ -5,13 +5,19 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 
 import static java.lang.System.out;
-@CommandInterface(name = "print")
+
 
 public class Print implements ClassnoVypolnil {
 
     String nechego = "";
     public static String kiboshing = "не коретно введена команда";
-    public void vypolni (Scanner sc, ToDoList toDoList,Logger logger) {
+
+    @Override
+    public void supports(String name) {
+        name = "print";
+    }
+    @Override
+    public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
         App.allnet = sc.nextLine();
         logger.info("print {}", App.allnet);
         if (App.allnet.contains("all")) {
