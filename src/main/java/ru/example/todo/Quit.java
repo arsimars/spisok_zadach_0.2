@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class Quit implements ClassnoVypolnil{
     @Override
-    public void supports(String name) {
-        name = "quit";
+    public boolean supports(String name) {
+        return "quit".equals(name);
     }
 
     @Override

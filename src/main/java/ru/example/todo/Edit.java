@@ -10,8 +10,8 @@ public class Edit implements ClassnoVypolnil{
 
 
     @Override
-    public void supports(String name) {
-        name = "edit";
+    public boolean supports(String name) {
+        return "edit".equals(name);
     }
     @Override
     public void vypolni  (Scanner sc, ToDoList toDoList, Logger logger) {

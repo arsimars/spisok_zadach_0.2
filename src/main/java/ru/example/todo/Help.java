@@ -7,8 +7,8 @@ import static java.lang.System.out;
 
 public class Help implements ClassnoVypolnil{
     @Override
-    public void supports(String name) {
-        name = "help";
+    public boolean supports(String name) {
+        return "help".equals(name);
     }
 
     @Override

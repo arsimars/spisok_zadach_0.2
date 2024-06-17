@@ -9,8 +9,8 @@ import static java.lang.System.out;
 
 public class Search implements ClassnoVypolnil {
     @Override
-    public void supports(String name) {
-        name = "search";
+    public boolean supports(String name) {
+        return "search".equals(name);
     }
     @Override
 

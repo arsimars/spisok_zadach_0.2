@@ -7,8 +7,8 @@ import org.slf4j.Logger;
 import static java.lang.System.out;
 public class Add implements ClassnoVypolnil {
     @Override
-    public void supports(String name) {
-        name = "add";
+    public boolean supports(String name) {
+        return "add".equals(name);
     }
     @Override
     public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {

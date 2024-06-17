@@ -11,8 +11,8 @@ import static java.lang.System.out;
 
 public class Toggle implements ClassnoVypolnil{
     @Override
-    public void supports(String name) {
-        name = "toggle";
+    public boolean supports(String name) {
+        return "toggle".equals(name);
     }
     @Override
     public void vypolni (Scanner sc, ToDoList toDoList, Logger logger){

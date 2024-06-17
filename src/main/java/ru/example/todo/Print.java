@@ -13,8 +13,8 @@ public class Print implements ClassnoVypolnil {
     public static String kiboshing = "не коретно введена команда";
 
     @Override
-    public void supports(String name) {
-        name = "print";
+    public boolean supports(String name) {
+        return "print".equals(name);
     }
     @Override
     public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {

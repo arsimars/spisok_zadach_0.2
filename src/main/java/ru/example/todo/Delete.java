@@ -10,8 +10,8 @@ import static java.lang.System.out;
 public class Delete implements ClassnoVypolnil {
 
     @Override
-    public void supports(String name) {
-        name = "delete";
+    public boolean supports(String name) {
+        return "delete".equals(name);
     }
     @Override
     public void vypolni(Scanner sc, ToDoList toDoList, Logger logger)
