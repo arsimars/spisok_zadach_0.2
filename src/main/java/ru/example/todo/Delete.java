@@ -1,9 +1,9 @@
 package ru.example.todo;
 
+import org.slf4j.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import org.slf4j.Logger;
 
 import static java.lang.System.out;
 
@@ -13,8 +13,9 @@ public class Delete implements ClassnoVypolnil {
     public boolean supports(String name) {
         return "delete".equals(name);
     }
+
     @Override
-    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger){
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         try {
             int h = sc.nextInt();
             logger.info("delete {}", h);
@@ -25,7 +26,7 @@ public class Delete implements ClassnoVypolnil {
                     out.println(Print.kiboshing);
                     logger.info(Print.kiboshing);
                 }
-            } catch(IndexOutOfBoundsException | NullPointerException e){
+            } catch (IndexOutOfBoundsException | NullPointerException e) {
                 out.println(Print.kiboshing);
                 logger.info(Print.kiboshing);
             }

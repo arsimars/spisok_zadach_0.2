@@ -1,5 +1,5 @@
 package ru.example.todo;
-import java.util.Scanner;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,14 +18,17 @@ public class ToDoList {
     public List<Zadanie> getSpisok() {
         return spisok;
     }
-public void removeSpisok(int h){
-    spisok.remove(h);
-}
-public void hardManala (int i){
-    spisok.get(i).menala();
-}
-public void newZadacha(int o,String novai){
-    spisok.get(o).zadacha = novai;
-    spisok.get(o).vipolni = "[]";
-}
+
+    public void removeSpisok(int h) {
+        spisok.remove(h);
+    }
+
+    public void hardManala(int i) {
+        spisok.get(i).menala();
+    }
+
+    public void newZadacha(int o, String novai) {
+        spisok.get(o).zadacha = novai;
+        spisok.get(o).vipolni = "[]";
+    }
 }

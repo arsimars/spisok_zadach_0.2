@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public interface ClassnoVypolnil {
 
-    boolean supports (String name);
+    boolean supports(String name);
 
     void vypolni(Scanner sc, ToDoList toDoList, Logger logger);
 }

@@ -1,9 +1,9 @@
 package ru.example.todo;
 
+import org.slf4j.Logger;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-import org.slf4j.Logger;
 
 import static java.lang.System.out;
 

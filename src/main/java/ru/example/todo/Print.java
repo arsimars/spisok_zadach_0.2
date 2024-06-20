@@ -1,8 +1,8 @@
 package ru.example.todo;
 
-import java.util.Scanner;
-
 import org.slf4j.Logger;
+
+import java.util.Scanner;
 
 import static java.lang.System.out;
 
@@ -16,8 +16,9 @@ public class Print implements ClassnoVypolnil {
     public boolean supports(String name) {
         return "print".equals(name);
     }
+
     @Override
-    public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         toDoList.getSpisok();
         String allnet = sc.nextLine();
         logger.info("print {}", allnet);

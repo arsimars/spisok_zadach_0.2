@@ -1,13 +1,13 @@
 package ru.example.todo;
 
-import org.slf4j.LoggerFactory;
 import org.slf4j.Logger;
-
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Scanner;
 
-import static java.lang.System.*;
+import static java.lang.System.in;
+import static java.lang.System.setProperty;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);

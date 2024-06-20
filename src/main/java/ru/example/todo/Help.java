@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public class Help implements ClassnoVypolnil{
+public class Help implements ClassnoVypolnil {
     @Override
     public boolean supports(String name) {
         return "help".equals(name);
@@ -61,5 +61,5 @@ public class Help implements ClassnoVypolnil{
             out.println(d);
         }
     }
-    }
+}
 
