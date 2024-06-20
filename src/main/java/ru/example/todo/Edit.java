@@ -6,33 +6,35 @@ import java.util.Scanner;
 import org.slf4j.Logger;
 
 import static java.lang.System.out;
-public class Edit implements ClassnoVypolnil{
+
+public class Edit implements ClassnoVypolnil {
 
 
     @Override
     public boolean supports(String name) {
         return "edit".equals(name);
     }
+
     @Override
-    public void vypolni  (Scanner sc, ToDoList toDoList, Logger logger) {
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         try {
             int o = sc.nextInt();
-            logger.info("edit {}", o);
-            if (App.nomerchek > o) {
+            try {
+                logger.info("edit {}", o);
                 if (0 <= o) {
                     String novai = sc.nextLine();
-                    toDoList.spisok.get(o).zadacha = novai;
-                    toDoList.spisok.get(o).vipolni = "[]";
+                    toDoList.newZadacha(o, novai);
                 } else {
                     out.println(Print.kiboshing);
                     logger.info(Print.kiboshing);
                 }
-            } else {
+            } catch (IndexOutOfBoundsException | NullPointerException e) {
+                sc.next();
                 out.println(Print.kiboshing);
                 logger.info(Print.kiboshing);
             }
-        } catch (
-                InputMismatchException e) {
+        } catch (InputMismatchException e) {
+            sc.next();
             out.println(Print.kiboshing);
             logger.info(Print.kiboshing);
         }

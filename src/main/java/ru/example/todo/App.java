@@ -11,9 +11,6 @@ import static java.lang.System.*;
 
 public class App {
     private static final Logger logger = LoggerFactory.getLogger(App.class);
-    public static String zadacha;
-    public static String allnet;
-    public static Integer nomerchek = 0;
 
     public static void main(String[] args) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         setProperty("LOG_LEVEL", "info");

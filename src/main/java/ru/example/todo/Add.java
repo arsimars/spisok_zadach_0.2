@@ -13,14 +13,12 @@ public class Add implements ClassnoVypolnil {
     @Override
     public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         String vipolni = "[]";
-        App.zadacha = sc.nextLine();
-        logger.info("add {}", App.zadacha);
-        if (!App.zadacha.isEmpty()) {
+        String zadacha = sc.nextLine();
+        logger.info("add {}", zadacha);
+        if (!zadacha.isEmpty()) {
             Zadanie nomer = new Zadanie();
             nomer.vipolni = vipolni;
-            nomer.zadacha = App.zadacha;
-            nomer.nomerochek = App.nomerchek;
-            ++App.nomerchek;
+            nomer.zadacha = zadacha;
             toDoList.zpisochek_dobav(nomer);
         } else {
             out.println("ошибка");

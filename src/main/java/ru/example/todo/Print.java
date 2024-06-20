@@ -18,15 +18,16 @@ public class Print implements ClassnoVypolnil {
     }
     @Override
     public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
-        App.allnet = sc.nextLine();
-        logger.info("print {}", App.allnet);
-        if (App.allnet.contains("all")) {
-            for (Zadanie alll : toDoList.spisok) {
+        toDoList.getSpisok();
+        String allnet = sc.nextLine();
+        logger.info("print {}", allnet);
+        if (allnet.contains("all")) {
+            for (Zadanie alll : toDoList.getSpisok()) {
                 out.println(alll);
                 logger.info(String.valueOf(alll));
             }
-        } else if (App.allnet.equals(nechego)) {
-            for (Zadanie t : toDoList.spisok) {
+        } else if (allnet.equals(nechego)) {
+            for (Zadanie t : toDoList.getSpisok()) {
                 if (t.vipolni.equals("[]")) {
                     out.println(t);
                     logger.info(String.valueOf(t));

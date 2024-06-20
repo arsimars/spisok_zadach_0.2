@@ -14,24 +14,24 @@ public class Delete implements ClassnoVypolnil {
         return "delete".equals(name);
     }
     @Override
-    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger)
-    {
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger){
         try {
             int h = sc.nextInt();
             logger.info("delete {}", h);
-            if (App.nomerchek > h) {
+            try {
                 if (0 <= h) {
-                    toDoList.spisok.remove(h);
+                    toDoList.removeSpisok(h);
                 } else {
                     out.println(Print.kiboshing);
                     logger.info(Print.kiboshing);
                 }
-            } else {
+            } catch(IndexOutOfBoundsException | NullPointerException e){
                 out.println(Print.kiboshing);
                 logger.info(Print.kiboshing);
             }
         } catch (
                 InputMismatchException e) {
+            sc.nextLine();
             out.println(Print.kiboshing);
             logger.info(Print.kiboshing);
         }

@@ -17,7 +17,7 @@ public class Search implements ClassnoVypolnil {
     public void vypolni (Scanner sc, ToDoList toDoList, Logger logger) {
         String slovo = sc.nextLine();
         logger.info("search {}", slovo);
-        for (Zadanie u : toDoList.spisok) {
+        for (Zadanie u : toDoList.getSpisok()) {
             if (u.zadacha.contains(slovo)) {
             out.println(u);
             logger.info(String.valueOf(u));

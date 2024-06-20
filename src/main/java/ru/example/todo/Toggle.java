@@ -8,32 +8,37 @@ import org.slf4j.Logger;
 import static java.lang.System.out;
 
 
+public class Toggle implements ClassnoVypolnil {
+    private Object e;
 
-public class Toggle implements ClassnoVypolnil{
     @Override
     public boolean supports(String name) {
         return "toggle".equals(name);
     }
+
     @Override
-    public void vypolni (Scanner sc, ToDoList toDoList, Logger logger){
+    public void vypolni(Scanner sc, ToDoList toDoList, Logger logger) {
         int i;
+        toDoList.getSpisok();
         try {
             i = sc.nextInt();
             logger.info("toggle {}", i);
-            if (App.nomerchek > i) {
+            try {
                 if (0 <= i) {
-                    toDoList.spisok.get(i).menala();
+                    toDoList.hardManala(i);
                 } else {
                     out.println(Print.kiboshing);
-                    logger.info( Print.kiboshing);
+                    logger.info(Print.kiboshing);
                 }
-
-            } else {
+            } catch (IndexOutOfBoundsException | NullPointerException e ) {
+                sc.nextLine();
                 out.println(Print.kiboshing);
                 logger.info(Print.kiboshing);
             }
+
         } catch (
                 InputMismatchException e) {
+            sc.nextLine();
             out.println(Print.kiboshing);
             logger.info(Print.kiboshing);
         }
